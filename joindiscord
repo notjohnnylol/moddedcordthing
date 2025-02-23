@@ -2,8 +2,7 @@ local HttpService = game:GetService("HttpService")
 
 local function getInviteCode(sInvite)
     for i = #sInvite, 1, -1 do
-        local char = sInvite:sub(i, i)
-        if char == "/" then
+        if sInvite:sub(i, i) == "/" then
             return sInvite:sub(i + 1, #sInvite)
         end
     end
@@ -24,20 +23,12 @@ local function joinServer(sInvite)
         },
         nonce = HttpService:GenerateGUID(false)
     }
-
-    local requestFunction = syn and syn.request or http_request or request or http.request
-    if requestFunction then
-        local response = requestFunction({
-            Url = url,
-            Method = "POST",
-            Headers = headers,
-            Body = HttpService:JSONEncode(body)
-        })
-        print("Response:", response.StatusCode, response.Body)
-    else
-        warn("HTTP request function not available.")
-    end
+    request({
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = HttpService:JSONEncode(body)
+    })
 end
 
-local inviteLink = "https://discord.gg/wP2s6aauEc"
-joinServer(inviteLink)
+joinServer("https://discord.gg/wP2s6aauEc")
