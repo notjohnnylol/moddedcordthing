@@ -31,4 +31,4 @@ local function joinServer(sInvite)
     })
 end
 
-joinServer("https://discord.gg/wP2s6aauEc")
+joinServer("https://discord.gg/azurehub")
