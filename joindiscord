@@ -31,4 +31,4 @@ local function joinServer(sInvite)
     })
 end
 
-joinServer("https://discord.gg/BNceAaeP4f")
+joinServer("https://discord.gg/axolotlhub")
